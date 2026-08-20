@@ -77,13 +77,8 @@ app.use(
 
 app.use(cookieParser());
 
-// EXPRESS 5 COMPATIBILITY
-//
-// Express 5 exposes req.query as a read-only getter.
-// The sanitization middlewares used by this project
-// need to modify req.query.
-//
-// We create a writable copy before those middlewares run.
+
+
 
 app.use((req, res, next) => {
   Object.defineProperty(req, "query", {
