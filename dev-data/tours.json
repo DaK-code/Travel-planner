@@ -1,0 +1,215 @@
+[
+  {
+    "name": "The Kpalime Waterfall Trek",
+    "duration": 3,
+    "maxGroupSize": 12,
+    "difficulty": "easy",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 24,
+    "price": 250,
+    "priceDiscount": 200,
+    "summary": "Explore lush green rainforests and refreshing natural waterfalls around Kpalime.",
+    "description": "Immerse yourself in the tropical nature of Kpalime. Visit Mount Agou, discover local artisan crafts, walk through cocoa and coffee plantations, and cool down under the stunning Cascade de Wome.",
+    "imageCover": "tour-kpalime-cover.jpg",
+    "images": [
+      "tour-kpalime-1.jpg",
+      "tour-kpalime-2.jpg",
+      "tour-kpalime-3.jpg"
+    ],
+    "startDates": ["2026-10-15T09:00:00.000Z", "2026-11-20T09:00:00.000Z"],
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [0.6294, 6.9012],
+      "address": "Kpalime Center, Togo",
+      "description": "Kpalime Central Station"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [0.6385, 6.8833],
+        "address": "Mount Agou, Togo",
+        "description": "Hiking to the highest point in Togo",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [0.5512, 6.8521],
+        "address": "Cascade de Wome, Togo",
+        "description": "Swimming and picnic at Wome Waterfall",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [0.6278, 6.9055],
+        "address": "Craft Center, Kpalime, Togo",
+        "description": "Local artisan village and wood carving workshop",
+        "day": 3
+      }
+    ]
+  },
+  {
+    "name": "Lome Cultural & Beach Escape",
+    "duration": 2,
+    "maxGroupSize": 15,
+    "difficulty": "easy",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 18,
+    "price": 180,
+    "summary": "Discover the vibrant capital city, its bustling markets, historical sights, and sandy coast.",
+    "description": "A rich weekend tour covering the Grand Marche, the famous Fetish Market in Akodessewa, historical monuments, and relaxing evenings at the tropical beaches of Lome.",
+    "imageCover": "tour-lome-cover.jpg",
+    "images": ["tour-lome-1.jpg", "tour-lome-2.jpg"],
+    "startDates": ["2026-09-05T08:00:00.000Z", "2026-10-01T08:00:00.000Z"],
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [1.2228, 6.1375],
+      "address": "Independence Square, Lome, Togo",
+      "description": "Monument de l'Independance"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [1.2155, 6.1264],
+        "address": "Grand Marche, Lome, Togo",
+        "description": "Exploring Nana Benz textile markets",
+        "day": 1
+      },
+      {
+        "type": "Point",
+        "coordinates": [1.2721, 6.1601],
+        "address": "Akodessewa Fetish Market, Lome, Togo",
+        "description": "Traditional Vodou cultural tour",
+        "day": 2
+      }
+    ]
+  },
+  {
+    "name": "Tamberma Valley Expedition",
+    "duration": 5,
+    "maxGroupSize": 8,
+    "difficulty": "difficult",
+    "ratingsAverage": 4.9,
+    "ratingsQuantity": 31,
+    "price": 550,
+    "priceDiscount": 490,
+    "summary": "A deep dive into the UNESCO World Heritage site of Koutammakou in Northern Togo.",
+    "description": "Travel North to Kara and explore the fascinating fortified mud tower-houses (Takienta) of the Batammariba people. Experience authentic traditional living and stunning savannah landscapes.",
+    "imageCover": "tour-tamberma-cover.jpg",
+    "images": [
+      "tour-tamberma-1.jpg",
+      "tour-tamberma-2.jpg",
+      "tour-tamberma-3.jpg"
+    ],
+    "startDates": ["2026-11-10T07:00:00.000Z", "2026-12-05T07:00:00.000Z"],
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [1.1912, 9.5489],
+      "address": "Kara Downtown, Togo",
+      "description": "Kara City Hub"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [1.0233, 9.7511],
+        "address": "Koutammakou, Kande, Togo",
+        "description": "Tour of the Takienta mud castles",
+        "day": 2
+      },
+      {
+        "type": "Point",
+        "coordinates": [1.1102, 9.8821],
+        "address": "Sarakawa Reserve, Togo",
+        "description": "Safari viewing local fauna and flora",
+        "day": 4
+      }
+    ]
+  },
+  {
+    "name": "Togoville & Lake Togo Sailing",
+    "duration": 1,
+    "maxGroupSize": 20,
+    "difficulty": "easy",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 12,
+    "price": 90,
+    "summary": "Cross Lake Togo in a traditional pirogue to explore the historic town of Togoville.",
+    "description": "A peaceful day trip starting at Agbodrafo, sailing across Lake Togo to Togoville. Visit the historical cathedral, traditional shrines, and learn about the treaty that gave Togo its name.",
+    "imageCover": "tour-togoville-cover.jpg",
+    "images": ["tour-togoville-1.jpg", "tour-togoville-2.jpg"],
+    "startDates": ["2026-09-12T08:30:00.000Z", "2026-10-10T08:30:00.000Z"],
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [1.4789, 6.2023],
+      "address": "Agbodrafo Boat Terminal, Lake Togo, Togo",
+      "description": "Lake Togo Shore"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [1.4822, 6.2268],
+        "address": "Togoville Central Square, Togo",
+        "description": "Visit to Togoville Cathedral and Vodou Shrines",
+        "day": 1
+      }
+    ]
+  },
+  {
+    "name": "Fazao-Malfakassa Wilderness",
+    "duration": 4,
+    "maxGroupSize": 10,
+    "difficulty": "medium",
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 15,
+    "price": 420,
+    "summary": "Explore the rugged mountains and wild forest reserves in central Togo.",
+    "description": "Hike through the Fazao-Malfakassa National Park, featuring dramatic mountain ridges, dense gallery forests, rivers, and wildlife spotting opportunities in a untouched conservation area.",
+    "imageCover": "tour-fazao-cover.jpg",
+    "images": ["tour-fazao-1.jpg", "tour-fazao-2.jpg"],
+    "startDates": ["2026-10-22T06:00:00.000Z", "2026-11-18T06:00:00.000Z"],
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [1.1333, 8.9833],
+      "address": "Sokode, Central Region, Togo",
+      "description": "Sokode Departure Station"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [0.7833, 8.7],
+        "address": "Fazao Park Entrance, Togo",
+        "description": "Forest trekking and bird watching",
+        "day": 2
+      }
+    ]
+  },
+  {
+    "name": "Aledjo Fault & Plateaux Hike",
+    "duration": 3,
+    "maxGroupSize": 12,
+    "difficulty": "medium",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 9,
+    "price": 310,
+    "priceDiscount": 280,
+    "summary": "Discover the famous Failled d'Aledjo and mountain trails near Atakpame.",
+    "description": "Journey through the scenic Plateaux region of Togo. Drive through the carved rock passage of Failled d'Aledjo, trek scenic highlands, and taste local coffee and fruit harvests.",
+    "imageCover": "tour-aledjo-cover.jpg",
+    "images": ["tour-aledjo-1.jpg", "tour-aledjo-2.jpg"],
+    "startDates": ["2026-10-05T07:30:00.000Z", "2026-11-12T07:30:00.000Z"],
+    "startLocation": {
+      "type": "Point",
+      "coordinates": [1.1306, 7.5269],
+      "address": "Atakpame, Togo",
+      "description": "Atakpame Town Center"
+    },
+    "locations": [
+      {
+        "type": "Point",
+        "coordinates": [1.2188, 9.2522],
+        "address": "Failled d'Aledjo, Togo",
+        "description": "Scenic pass through the cleft mountain road",
+        "day": 2
+      }
+    ]
+  }
+]

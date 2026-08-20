@@ -1,0 +1,38 @@
+extends base
+
+block content
+  main.main
+    .user-view
+      nav.user-view__menu
+        ul.side-nav
+          li
+            a(href="/me")
+              svg
+                use(xlink:href="/img/icons.svg#icon-settings")
+              | Settings
+
+          li
+            a(href="/my-tours")
+              svg
+                use(xlink:href="/img/icons.svg#icon-briefcase")
+              | My bookings
+
+          li.side-nav--active
+            a(href="/my-reviews")
+              svg
+                use(xlink:href="/img/icons.svg#icon-star")
+              | My reviews
+
+      .user-view__content
+        h2.heading-secondary.ma-bt-md My reviews
+
+        if reviews.length
+          each review in reviews
+            .review-card
+              h3= review.tour.name
+              p Rating: #{review.rating}/5
+              p= review.review
+              p
+                | Posted on #{review.createdAt.toLocaleDateString()}
+        else
+          h3.heading-secondary You have not written any reviews yet.

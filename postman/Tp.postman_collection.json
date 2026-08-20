@@ -1,0 +1,309 @@
+{
+  "info": {
+    "name": "Travel Planner API",
+    "description": "Collection Postman de base pour tester Travel Planner en local. Postman conserve automatiquement le cookie JWT reçu après login/signup.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api/v1"
+    },
+    {
+      "key": "tourId",
+      "value": "REPLACE_WITH_TOUR_ID"
+    },
+    {
+      "key": "userId",
+      "value": "REPLACE_WITH_USER_ID"
+    },
+    {
+      "key": "bookingId",
+      "value": "REPLACE_WITH_BOOKING_ID"
+    },
+    {
+      "key": "reviewId",
+      "value": "REPLACE_WITH_REVIEW_ID"
+    }
+  ],
+  "item": [
+    {
+      "name": "AUTH - Users",
+      "item": [
+        {
+          "name": "Signup",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/users/signup",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"TestPassword123!\",\n  \"passwordConfirm\": \"TestPassword123!\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/users/login",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"TestPassword123!\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Me",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/me"
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/logout"
+          }
+        },
+        {
+          "name": "Forgot Password",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/users/forgotPassword",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update My Password",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/users/updateMyPassword",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"passwordCurrent\": \"TestPassword123!\",\n  \"password\": \"NewTestPassword123!\",\n  \"passwordConfirm\": \"NewTestPassword123!\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "TOURS",
+      "item": [
+        {
+          "name": "Get All Tours",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tours"
+          }
+        },
+        {
+          "name": "Filter price >= 500",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tours?price[gte]=500"
+          }
+        },
+        {
+          "name": "Sort",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tours?sort=-ratingsAverage,price"
+          }
+        },
+        {
+          "name": "Pagination",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tours?page=1&limit=5"
+          }
+        },
+        {
+          "name": "Top 5 Cheap Tours",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tours/top-5-cheap"
+          }
+        },
+        {
+          "name": "Get Tour By ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tours/{{tourId}}"
+          }
+        },
+        {
+          "name": "Tours Within",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tours/tours-within/200/center/5.6037,0.1870/unit/km"
+          }
+        },
+        {
+          "name": "Create Tour",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/tours",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test Tour\",\n  \"duration\": 5,\n  \"maxGroupSize\": 10,\n  \"difficulty\": \"medium\",\n  \"price\": 500,\n  \"summary\": \"Test tour\",\n  \"description\": \"Test tour created from Postman\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Tour",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/tours/{{tourId}}",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 550\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Tour",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/tours/{{tourId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "REVIEWS",
+      "item": [
+        {
+          "name": "Get Reviews For Tour",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tours/{{tourId}}/reviews"
+          }
+        },
+        {
+          "name": "Create Review",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/tours/{{tourId}}/reviews",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"review\": \"Excellent tour!\",\n  \"rating\": 5\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Review",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/reviews/{{reviewId}}",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"review\": \"Very good tour.\",\n  \"rating\": 4\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Review",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/reviews/{{reviewId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BOOKINGS",
+      "item": [
+        {
+          "name": "Get My Bookings",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/bookings/my-bookings"
+          }
+        },
+        {
+          "name": "Get All Bookings",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/bookings"
+          }
+        },
+        {
+          "name": "Create Booking",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/bookings",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tour\": \"{{tourId}}\",\n  \"user\": \"{{userId}}\",\n  \"price\": 500\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Booking By ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/bookings/{{bookingId}}"
+          }
+        }
+      ]
+    }
+  ]
+}

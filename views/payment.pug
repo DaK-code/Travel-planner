@@ -1,0 +1,75 @@
+extends base
+
+block content
+
+  section.section-header
+    .header__hero
+      .header__hero-overlay &nbsp;
+      img.header__hero-img(
+        src=`/img/tours/${tour.imageCover}`
+        alt=tour.name
+      )
+
+    .heading-box
+      h1.heading-primary
+        span Payment
+
+  section.section-description
+    .overview-box
+      h2.heading-secondary.ma-bt-lg Confirm your booking
+
+      .overview-box__detail
+        span.overview-box__label Tour:
+        span.overview-box__text= tour.name
+
+      .overview-box__detail
+        span.overview-box__label Duration:
+        span.overview-box__text= `${tour.duration} days`
+
+      .overview-box__detail
+        span.overview-box__label Price:
+        span.overview-box__text= `$${tour.price}`
+
+    .description-box
+      h2.heading-secondary Demo Payment
+
+      p.description__text
+        | No real payment will be made.
+
+      form#demo-payment-form
+
+        input#tour-id(
+          type="hidden"
+          value=tour._id
+        )
+
+        .form__group
+          label.form__label Card number
+          input.form__input(
+            type="text"
+            value="4242 4242 4242 4242"
+            readonly
+          )
+
+        .form__group
+          label.form__label Expiration
+          input.form__input(
+            type="text"
+            value="12/30"
+            readonly
+          )
+
+        .form__group
+          label.form__label CVV
+          input.form__input(
+            type="text"
+            value="123"
+            readonly
+          )
+
+        button.btn.btn--green#pay-button(
+          type="submit"
+        )
+          | Pay $#{tour.price}
+
+        p#payment-message
