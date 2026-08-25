@@ -1,5 +1,6 @@
 import { signup } from "./signup";
 import { login, logout } from "./login";
+import { displayMap } from "./mapbox";
 
 // SIGN UP
 
@@ -68,6 +69,16 @@ if (logoutBtn) {
     e.preventDefault();
     logout();
   });
+}
+
+// MAPBOX
+
+const mapElement = document.getElementById("map");
+
+if (mapElement) {
+  const locations = JSON.parse(mapElement.dataset.locations);
+
+  displayMap(locations);
 }
 
 // BOOK TOUR

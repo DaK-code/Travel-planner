@@ -716,6 +716,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"f2QDv":[function(require,module,exports,__globalThis) {
 var _signup = require("./signup");
 var _login = require("./login");
+var _mapbox = require("./mapbox");
 // SIGN UP
 const signupForm = document.querySelector(".form--signup");
 if (signupForm) signupForm.addEventListener("submit", async (e)=>{
@@ -762,6 +763,12 @@ if (logoutBtn) logoutBtn.addEventListener("click", (e)=>{
     e.preventDefault();
     (0, _login.logout)();
 });
+// MAPBOX
+const mapElement = document.getElementById("map");
+if (mapElement) {
+    const locations = JSON.parse(mapElement.dataset.locations);
+    (0, _mapbox.displayMap)(locations);
+}
 // BOOK TOUR
 const bookTourBtn = document.getElementById("book-tour");
 if (bookTourBtn) bookTourBtn.addEventListener("click", ()=>{
@@ -840,7 +847,7 @@ if (passwordForm) passwordForm.addEventListener("submit", async (e)=>{
     }
 });
 
-},{"./signup":"fNY2o","./login":"7yHem"}],"fNY2o":[function(require,module,exports,__globalThis) {
+},{"./signup":"fNY2o","./login":"7yHem","./mapbox":"3zDlz"}],"fNY2o":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "signup", ()=>signup);
@@ -5191,6 +5198,40 @@ const logout = async ()=>{
         console.error(err);
         alert("Error logging out! Try again.");
     }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3zDlz":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "displayMap", ()=>displayMap);
+const displayMap = (locations)=>{
+    mapboxgl.accessToken = "pk.eyJ1Ijoiam9uYXNzY2htZWR@bWFubiIsImEi0iJjam54ZmM5N3gwNjAzM3dtZDNxYTVlMnd2In0.ytpI7V7w7cyT1Kq5rT9Z1A";
+    const map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/streets-v11",
+        scrollZoom: false
+    });
+    const bounds = new mapboxgl.LngLatBounds();
+    locations.forEach((loc)=>{
+        const el = document.createElement("div");
+        el.className = "marker";
+        new mapboxgl.Marker({
+            element: el,
+            anchor: "bottom"
+        }).setLngLat(loc.coordinates).addTo(map);
+        new mapboxgl.Popup({
+            offset: 30
+        }).setLngLat(loc.coordinates).setHTML(`<p>Day ${loc.day}: ${loc.description}</p>`).addTo(map);
+        bounds.extend(loc.coordinates);
+    });
+    map.fitBounds(bounds, {
+        padding: {
+            top: 200,
+            bottom: 150,
+            left: 100,
+            right: 100
+        }
+    });
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["6ZrGg","f2QDv"], "f2QDv", "parcelRequire8d74", {})
