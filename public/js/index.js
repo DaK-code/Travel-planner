@@ -83,28 +83,26 @@ if (bookTourBtn) {
       return;
     }
 
-    // Go to demo payment page
     window.location.href = `/payment/${tourId}`;
   });
 }
 
-// DEMO PAYMENT
+// STRIPE PAYMENT
 
-const paymentForm = document.getElementById("demo-payment-form");
+const paymentForm = document.getElementById("stripe-payment-form");
 
 if (paymentForm) {
   paymentForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const button = document.getElementById("pay-button");
-
     const message = document.getElementById("payment-message");
-
     const tourId = document.getElementById("tour-id").value;
 
     try {
       button.disabled = true;
-      button.textContent = "Processing...";
+      button.textContent = "Redirecting to Stripe...";
+      message.textContent = "";
 
       const res = await fetch("/api/v1/bookings/payment", {
         method: "POST",
@@ -123,28 +121,26 @@ if (paymentForm) {
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || "Payment failed.");
+        throw new Error(data.message || "Unable to create checkout session.");
       }
 
-      message.textContent =
-        "Payment successful! Your booking has been confirmed.";
+      if (!data.sessionUrl) {
+        throw new Error("Stripe checkout URL was not returned.");
+      }
 
-      button.textContent = "Booking confirmed";
-
-      setTimeout(() => {
-        window.location.href = "/my-tours";
-      }, 1500);
+      // Redirect user to Stripe Checkout
+      window.location.href = data.sessionUrl;
     } catch (err) {
-      console.error(err);
+      console.error("Stripe payment error:", err);
 
-      message.textContent = err.message;
+      message.textContent = err.message || "Payment failed.";
 
       button.disabled = false;
-
       button.textContent = "Pay now";
     }
   });
 }
+
 // UPDATE PASSWORD
 
 const passwordForm = document.querySelector(".form-user-password");
@@ -167,10 +163,13 @@ if (passwordForm) {
 
       const res = await fetch("/api/v1/users/updateMyPassword", {
         method: "PATCH",
+
         headers: {
           "Content-Type": "application/json",
         },
+
         credentials: "include",
+
         body: JSON.stringify({
           passwordCurrent,
           password,

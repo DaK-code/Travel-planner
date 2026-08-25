@@ -1,10 +1,10 @@
 extends base
 
 block content
-
   section.section-header
     .header__hero
-      .header__hero-overlay &nbsp;
+      .header__hero-overlay
+
       img.header__hero-img(
         src=`/img/tours/${tour.imageCover}`
         alt=tour.name
@@ -24,52 +24,30 @@ block content
 
       .overview-box__detail
         span.overview-box__label Duration:
-        span.overview-box__text= `${tour.duration} days`
+        span.overview-box__text #{tour.duration} days
 
       .overview-box__detail
         span.overview-box__label Price:
-        span.overview-box__text= `$${tour.price}`
+        span.overview-box__text $#{tour.price}
 
     .description-box
-      h2.heading-secondary Demo Payment
+      h2.heading-secondary Secure Payment
 
       p.description__text
-        | No real payment will be made.
+        | You will be redirected to Stripe Checkout to complete your payment.
+        | This is a test payment. No real money will be charged.
 
-      form#demo-payment-form
-
+      form#stripe-payment-form
+        //- Only the tour ID is sent to the backend.
+        //- The price is NEVER trusted from the frontend.
         input#tour-id(
           type="hidden"
           value=tour._id
         )
 
-        .form__group
-          label.form__label Card number
-          input.form__input(
-            type="text"
-            value="4242 4242 4242 4242"
-            readonly
-          )
-
-        .form__group
-          label.form__label Expiration
-          input.form__input(
-            type="text"
-            value="12/30"
-            readonly
-          )
-
-        .form__group
-          label.form__label CVV
-          input.form__input(
-            type="text"
-            value="123"
-            readonly
-          )
-
         button.btn.btn--green#pay-button(
           type="submit"
-        )
-          | Pay $#{tour.price}
+        ) Pay $#{tour.price}
 
         p#payment-message
+

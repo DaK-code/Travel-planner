@@ -76,10 +76,6 @@ app.use(
 // COOKIE PARSER
 
 app.use(cookieParser());
-
-
-
-
 app.use((req, res, next) => {
   Object.defineProperty(req, "query", {
     ...Object.getOwnPropertyDescriptor(req, "query"),

@@ -57,7 +57,6 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   res.redirect("/me");
 });
 
-
 // DELETE MY ACCOUNT
 
 exports.deleteMe = catchAsync(async (req, res, _next) => {

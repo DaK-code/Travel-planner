@@ -79,6 +79,22 @@ npm run watch:js
 
 5. Render link : https://travel-planner-8rax.onrender.com/
 
+## Test Credentials
+
+### Admin account
+
+Email: admin@travelplanner.com
+Password: Admin1234!
+
+Role: admin
+
+This account can be used to test protected admin routes such as:
+- Manage tours
+- Manage users
+- Manage reviews
+- Manage bookings
+
+
 ## Main Routes
 
 ### Frontend views

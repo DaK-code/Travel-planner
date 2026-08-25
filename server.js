@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const User = require("./models/userModel");
 
 // UNCAUGHT EXCEPTION
 
@@ -30,7 +31,6 @@ mongoose
     console.log("DATABASE CONNECTION ERROR!");
     console.log(err);
   });
-
 // SERVER
 
 const port = process.env.PORT || 3000;
