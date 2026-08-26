@@ -83,16 +83,11 @@ npm run watch:js
 
 ### Admin account
 
-Email: admin@travelplanner.com
-Password: Admin1234!
+Email: user@travelplanner.com
+Password:User1234!
 
-Role: admin
+Role: user
 
-This account can be used to test protected admin routes such as:
-- Manage tours
-- Manage users
-- Manage reviews
-- Manage bookings
 
 
 ## Main Routes
@@ -116,65 +111,3 @@ This account can be used to test protected admin routes such as:
 - `POST /api/v1/users/signup` - Register a new user
 - `POST /api/v1/users/login` - Log in user
 - `GET /api/v1/users/logout` - Log out user
-
-## Known Issues & External Service Limitations
-
-During the development of this project, some difficulties were encountered
-with external services such as Stripe and Mapbox.
-
-### 1. Stripe Integration
-
-The original project architecture included Stripe Checkout for processing
-tour payments.
-
-However, this project is intended for educational purposes only.
-
-For this reason, no real payment was performed.
-
-The Stripe integration was therefore replaced by a simulated payment system.
-
-The simulated payment allows the user to:
-
-- select a tour
-- access the payment page
-- see the tour price
-- submit a demonstration payment
-- create a booking
-- mark the booking as paid
-
-No real financial transaction is performed.
-
-#### Problem encountered
-
-Creating and configuring a Stripe account required additional account
-verification/payment-related information.
-
-Since this project is only a school project, I decided not to use real
-payment processing.
-
-### 2. Mapbox Integration
-
-Mapbox was selected to display the tour locations on an interactive map.
-
-The application already contains the Mapbox integration logic, including:
-
-- Mapbox GL JS
-- tour locations
-- geographic coordinates
-- markers
-- popups
-- automatic map bounds
-
-#### Problem encountered
-
-During the creation of the Mapbox account, the account setup requested
-additional payment/card information.
-
-Since the project is educational and does not require a paid external
-service, the Mapbox account setup was not completed.
-
-Therefore, the Mapbox map could not be fully tested with a real Mapbox
-access token.
-
-The remaining code is prepared for integration once a valid Mapbox public
-access token is available.
