@@ -1,6 +1,5 @@
 const nodemailer = require("nodemailer");
 const htmlToText = require("html-to-text");
-
 module.exports = class Email {
   constructor(user, url) {
     this.to = user.email;
@@ -15,7 +14,7 @@ module.exports = class Email {
         service: "SendGrid",
         auth: {
           user: process.env.SENDGRID_USERNAME,
-          pass: process.env.SENDGRID_PASSWORD,
+          pass: process.env.SENDGRID_API_KEY,
         },
       });
     }
